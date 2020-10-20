@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE jdo PUBLIC "-//Sun Microsystems, Inc.//DTD Java Data Objects Metadata 2.0//EN" "http://java.sun.com/dtd/jdo_2_0.dtd">
+<jdo>
+    <package name="Entidad" >
+        <class name="Inmueble" >
+            <inheritance strategy="new-table"/>
+    
+            <field name="id" primary-key="true" value-strategy="increment"/>
+    
+            <!--Relacion:
+                
+                propietario   (1-n bidereccional)
+                tieneBarrio (1-n bidereccional)
+            -->
+
+            <field name="tiene" persistence-modifier="persistent" >
+                <foreign-key name="Barrio_Posee_FK" delete-action="cascade"/>
+            </field>
+
+            <field name="posee" persistence-modifier="persistent" >
+                <foreign-key name="Propietario_Posee_FK" delete-action="cascade"/>
+            </field>
+            
+            <field name="operacion"/>
+
+            <field name="tipo"/>
+
+            <field name="precio"/>
+
+            <field name="descr"/>
+            
+            <field name="direccion"/>
+			
+            <field name="disponibilidad"/>
+
+            
+        </class>
+    </package>
+</jdo>
